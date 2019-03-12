@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' アセンブリ属性の値を確認します
 
 <Assembly: AssemblyTitle("XorEncryptionVB")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Xor Encription Example")>
+<Assembly: AssemblyCompany("Masahiro Kume")>
 <Assembly: AssemblyProduct("XorEncryptionVB")>
-<Assembly: AssemblyCopyright("Copyright ©  2019")>
+<Assembly: AssemblyCopyright("Copyright ©  2019 Masahiro Kume")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
