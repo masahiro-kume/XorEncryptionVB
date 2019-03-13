@@ -5,6 +5,7 @@ Imports XorEncryptionVB.XorEncryption
 
 Module Module1
     Sub Main()
+        'TestFileFunction()
         Dim MyText As String
         Dim MyPass As String
         Dim FileName As String = "..\..\..\sample.7z"
@@ -65,4 +66,38 @@ Module Module1
         Console.Read()
 
     End Sub
+
+    Private Sub TestFileFunction()
+        Dim p As Byte()
+        Dim s As Integer
+        Dim l As Integer
+        Dim z As String = ""
+
+        If Not System.IO.File.Exists("test.bin") Then
+            Dim ba(&HFF) As Byte
+            For i As Integer = &H0 To &HFF
+                ba(i) = CByte(i)
+            Next
+            Using fs As System.IO.FileStream = System.IO.File.OpenWrite("test.bin")
+                For j As Integer = 0 To &HFF
+                    fs.WriteByte(ba(j))
+                Next
+                fs.Close()
+            End Using
+        End If
+
+        Do While z <> "z"
+            Console.Write("StartPos: ")
+            s = CInt(Console.ReadLine())
+            Console.WriteLine(s.ToString & vbNewLine)
+            Console.Write("Length : ")
+            l = CInt(Console.ReadLine())
+            Console.WriteLine(l.ToString & vbNewLine)
+            p = GetBytesFromFile("test.bin", s, l)
+            Console.WriteLine("StartPosition: {1}{0}ByteLength   : {2}{0}BinStream    : {3}{0}", vbNewLine, s, l, BitConverter.ToString(p))
+            z = Console.ReadLine()
+        Loop
+        End
+    End Sub
+
 End Module
