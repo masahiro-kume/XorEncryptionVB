@@ -32,6 +32,7 @@ Public Class XorEncryption
                             ReturnValue(ByteLength - i) = rda(len - i)
                         Next
                     End If
+                    fs.Close()
                 End Using
             Catch ex As Exception
                 ReturnValue = Nothing
